@@ -98,6 +98,11 @@ EXTRA_DIST = \
     runtest.py \
     $(NULL)
 
+DISTCLEANFILES = *.dSYM
+
+distclean-local:
+	-rm -rfv *.dSYM || rmdir *.dSYM
+
 update-tests:
 	@if ! $(AM_V_P); then echo "  GEN      test references"; fi
 	$(AM_V_at)$(AM_TESTS_ENVIRONMENT) \
