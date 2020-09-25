@@ -14,6 +14,8 @@ MAINTAINERCLEANFILES = \
     $(srcdir)/gtk-doc.make \
     $(srcdir)/m4/gtk-doc.m4 \
     $(srcdir)/docs/raqm-overrides.txt \
+    *~ compile config.guess config.sub depcomp install-sh ltmain.sh missing \
+    test-driver \
     $(NULL)
 
 -include $(top_srcdir)/git.mk
