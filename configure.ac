@@ -1,5 +1,5 @@
-#                                               -*- Autoconf -*-
-# Process this file with autoconf to produce a configure script.
+dnl# configure.ac                                  -*- Autoconf -*-
+dnl# Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
 AC_INIT([Raqm],
@@ -17,6 +17,8 @@ AC_CONFIG_MACRO_DIR([m4])dnl
 # Checks for programs.
 AC_PROG_CC
 AC_PROG_CC_C99
+AC_PROG_CPP
+AC_PROG_CXX
 
 # Enable compiler warnings
 AX_COMPILER_FLAGS
@@ -35,23 +37,26 @@ AC_SUBST([RAQM_LIBTOOL_VERSION])dnl
 
 
 PKG_PROG_PKG_CONFIG([0.20])
-AX_PKG_CHECK_MODULES(FREETYPE, [freetype2 >= 12.0.6], [])
-AX_PKG_CHECK_MODULES(HARFBUZZ, [], harfbuzz)
-AX_PKG_CHECK_MODULES(FRIBIDI, [], fribidi)
+AX_PKG_CHECK_MODULES([FREETYPE],[freetype2 >= 12.0.6],[])
+AX_PKG_CHECK_MODULES([HARFBUZZ],[],[harfbuzz])
+AX_PKG_CHECK_MODULES([FRIBIDI],[],[fribidi])
 
-_save_libs="$LIBS"
-_save_cflags="$CFLAGS"
-LIBS="$LIBS $HARFBUZZ_LIBS $FRIBIDI_LIBS"
-CFLAGS="$CFLAGS $HARFBUZZ_CFLAGS $FRIBIDI_CFLAGS"
-AC_CHECK_FUNCS(hb_ft_font_create_referenced hb_ft_font_set_load_flags hb_buffer_set_invisible_glyph)
-AC_CHECK_DECLS([HB_BUFFER_FLAG_REMOVE_DEFAULT_IGNORABLES],,,[[#include <hb.h>]])
+_save_libs="${LIBS}"
+_save_cflags="${CFLAGS}"
+LIBS="${LIBS} ${HARFBUZZ_LIBS} ${FRIBIDI_LIBS}"
+CFLAGS="${CFLAGS} ${HARFBUZZ_CFLAGS} ${FRIBIDI_CFLAGS}"
+AC_CHECK_FUNCS([hb_ft_font_create_referenced hb_ft_font_set_load_flags \
+                hb_buffer_set_invisible_glyph])
+AC_CHECK_DECLS([HB_BUFFER_FLAG_REMOVE_DEFAULT_IGNORABLES],[],[],[[
+#include <hb.h>
+]])dnl
 
-LIBS="$_save_libs"
-CFLAGS="$_save_cflags"
+LIBS="${_save_libs}"
+CFLAGS="${_save_cflags}"
 
 GTK_DOC_CHECK([1.14],[--flavour no-tmpl])
 
-case $build_os in
+case ${build_os} in
     mingw*)
         AX_APPEND_FLAG([-D__USE_MINGW_ANSI_STDIO=1])
         ;;

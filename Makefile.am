@@ -1,6 +1,6 @@
 NULL = 
 
-ACLOCAL_AMFLAGS = -I m4
+ACLOCAL_AMFLAGS = -I m4 --install
 
 SUBDIRS = src docs tests
 
