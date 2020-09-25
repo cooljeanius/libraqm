@@ -8,6 +8,7 @@ AC_INIT([Raqm],
         [raqm],
         [https://github.com/HOST-Oman/libraqm/])dnl
 
+AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([foreign color-tests -Wall -Wno-portability])
 AM_SILENT_RULES([yes])dnl
 
@@ -39,7 +40,7 @@ AC_SUBST([RAQM_LIBTOOL_VERSION])dnl
 PKG_PROG_PKG_CONFIG([0.20])
 AX_PKG_CHECK_MODULES([FREETYPE],[freetype2 >= 12.0.6],[])
 AX_PKG_CHECK_MODULES([HARFBUZZ],[],[harfbuzz])
-AX_PKG_CHECK_MODULES([FRIBIDI],[],[fribidi])
+AX_PKG_CHECK_MODULES([FRIBIDI],[],[fribidi])dnl
 
 _save_libs="${LIBS}"
 _save_cflags="${CFLAGS}"
@@ -83,6 +84,6 @@ AC_CONFIG_FILES([
     tests/Makefile
     docs/Makefile
     docs/version.xml
-])
+])dnl
 
 AC_OUTPUT
