@@ -18,4 +18,7 @@ MAINTAINERCLEANFILES = \
     test-driver \
     $(NULL)
 
+## FIXME: This should get removed eventually, once possible to do so:
+AM_DISTCHECK_CONFIGURE_FLAGS = --disable-Werror
+
 -include $(top_srcdir)/git.mk
