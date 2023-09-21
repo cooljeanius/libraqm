@@ -16,7 +16,7 @@ matrix:
       compiler: clang
 
     - os: osx
-      post_install:
+      after_install:
         - export XML_CATALOG_FILES="/usr/local/etc/xml/catalog" # for the docs
 
 before_script:
