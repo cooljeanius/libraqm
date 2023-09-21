@@ -1,0 +1,59 @@
+name: cooljeanius/libraqm
+on:
+  push:
+    branches:
+    - "**/*"
+  pull_request:
+concurrency:
+#   # This item has no matching transformer
+#   maximum_number_of_builds: 0
+jobs:
+  test:
+    runs-on: ubuntu-16.04
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4.0.0
+    - run: apt-get -y install libfreetype6-dev libharfbuzz-dev libfribidi-dev gtk-doc-tools
+    - run: |-
+        brew install freetype
+        brew install fribidi
+        brew install gtk-doc
+        brew install harfbuzz
+    - run: "./autogen.sh"
+    - run: "./configure --enable-gtk-doc"
+    - run: make check || (cat `find . -name '*.log'` && false)
+    - run: make distcheck
+    - run: bash .ci/deploy-docs.sh
+      if: "${{ success() }}"
+  test_2:
+    runs-on: ubuntu-16.04
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4.0.0
+    - run: apt-get -y install libfreetype6-dev libharfbuzz-dev libfribidi-dev gtk-doc-tools
+    - run: |-
+        brew install freetype
+        brew install fribidi
+        brew install gtk-doc
+        brew install harfbuzz
+#     # 'compiler' was not transformed because there is no suitable equivalent in GitHub Actions
+    - run: "./autogen.sh"
+    - run: "./configure --enable-gtk-doc"
+    - run: make check || (cat `find . -name '*.log'` && false)
+    - run: make distcheck
+  test_3:
+    runs-on: ubuntu-16.04
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4.0.0
+    - run: apt-get -y install libfreetype6-dev libharfbuzz-dev libfribidi-dev gtk-doc-tools
+    - run: |-
+        brew install freetype
+        brew install fribidi
+        brew install gtk-doc
+        brew install harfbuzz
+    - run: export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
+    - run: "./autogen.sh"
+    - run: "./configure --enable-gtk-doc"
+    - run: make check || (cat `find . -name '*.log'` && false)
+    - run: make distcheck
