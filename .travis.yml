@@ -1,5 +1,9 @@
 dist: xenial
 
+os:
+  - linux
+  - osx
+
 language: c
 
 matrix:
