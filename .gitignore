@@ -19,3 +19,4 @@ libtool
 Makefile
 raqm.pc
 stamp-h*
+.env.local
