@@ -19,3 +19,8 @@ libtool
 Makefile
 raqm.pc
 stamp-h*
+.env.local
+confdefs.h
+conftest.c
+conftest.err
+*.o.tmp
