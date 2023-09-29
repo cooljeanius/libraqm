@@ -17,7 +17,9 @@ matrix:
 
     - os: osx
       before_install:
+        - export HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
         - export XML_CATALOG_FILES="/usr/local/etc/xml/catalog" # for the docs
+        - export GIT_CURL_VERBOSE=1 && env | sort | uniq
 
 before_script:
   - ./autogen.sh
