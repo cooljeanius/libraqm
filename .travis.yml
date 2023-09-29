@@ -19,6 +19,7 @@ jobs:
 
     - name: macos
       os: osx
+      osx_image: xcode10.1
       env: 
         - HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
         - XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
@@ -32,7 +33,7 @@ jobs:
 before_script:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then if test -z "`which bundle`"; then gem install bundle bundler; fi; fi # (technically this works on Linux, too, it is just unnecessary there)
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then if test -r /usr/local && test -x "`which brew`"; then which -a brew && brew update -v --auto-update; else stat /usr/local; fi; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ca-certificates gtk-doc; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ca-certificates && brew install gtk-doc; fi
   - ./autogen.sh
   - ./configure --enable-gtk-doc --disable-Werror
 
