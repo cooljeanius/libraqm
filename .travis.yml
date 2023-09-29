@@ -6,23 +6,33 @@ os:
 
 language: c
 
-matrix:
+jobs:
   include:
-    - os: linux
+    - name: linux_with_docs
+      os: linux
       after_success:
         - bash .ci/deploy-docs.sh
 
-    - os: linux
+    - name: linux_with_clang
+      os: linux
       compiler: clang
 
-    - os: osx
+    - name: macos
+      os: osx
+      env: 
+        - HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
+        - XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
+        - GIT_CURL_VERBOSE=1
       before_install:
         - export HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
         - export XML_CATALOG_FILES="/usr/local/etc/xml/catalog" # for the docs
         - export GIT_CURL_VERBOSE=1 && env | sort | uniq
-        - gem install bundle
+        - gem install bundle bundler
 
 before_script:
+  - gem install bundle bundler
+  - brew update
+  - brew install gtk-doc
   - ./autogen.sh
   - ./configure --enable-gtk-doc --disable-Werror
 
