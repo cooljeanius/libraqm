@@ -31,8 +31,9 @@ jobs:
 
 before_script:
   - gem install bundle bundler
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then which -a brew && brew update -v --auto-update; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install gtk-doc; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then if test -n "${brew_ruby}" && test -x "`which rvm`"; then rvm ${brew_ruby} do brew bundle --verbose --global; fi; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then if test -w /usr/local && test -x "`which brew`"; then which -a brew && brew update -v --auto-update; fi; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ca-certificates gtk-doc; fi
   - ./autogen.sh
   - ./configure --enable-gtk-doc --disable-Werror
 
