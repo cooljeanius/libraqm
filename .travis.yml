@@ -31,8 +31,8 @@ jobs:
 
 before_script:
   - gem install bundle bundler
-  - brew update
-  - brew install gtk-doc
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then which -a brew && brew update -v --auto-update; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install gtk-doc; fi
   - ./autogen.sh
   - ./configure --enable-gtk-doc --disable-Werror
 
