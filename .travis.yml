@@ -18,24 +18,26 @@ jobs:
       osx_image: xcode10.1
       cache:
         bundler: true
+        pip: true
         directories:
           - /usr/local
       env: 
-        - HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
+        - HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1 HOMEBREW_NO_INSTALL_CLEANUP=1 HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
         - XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
         - GIT_CURL_VERBOSE=1
         - MAKEFLAGS="-j2"
       before_install:
-        - export HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
+        - export HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1 HOMEBREW_NO_INSTALL_CLEANUP=1 HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
         - export XML_CATALOG_FILES="/usr/local/etc/xml/catalog" # for the docs
         - export GIT_CURL_VERBOSE=1 && env | uniq | sort | uniq
         - gem install bundle bundler
+        - if test -x "`which nproc`"; then echo "nproc is `nproc`"; elif test -x "`which getconf`"; then echo "getconf _NPROCESSORS_ONLN is `getconf _NPROCESSORS_ONLN`"; fi  
         - if test -x "`which xcode-select`" && test "x`whoami`" = "xroot" && test "x${TERM_PROGRAM}" = "xApple_Terminal"; then xcode-select --install; else echo "nope (`whoami`)"; fi
 
 before_script:
-  - if test -x "`which brew`"; then export HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1; fi
+  - if test -x "`which brew`"; then export HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1 HOMEBREW_NO_INSTALL_CLEANUP=1 HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1; fi
   - if test -e /usr/local/etc/xml/catalog; then export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"; fi
-  - if test -x "`which git`"; then export GIT_CURL_VERBOSE=1 && env | sort | uniq; fi
+  - if test -x "`which git`"; then export GIT_CURL_VERBOSE=1 && env | uniq | sort | uniq; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then if test -z "`which bundle`"; then gem install bundle bundler; fi; fi # (technically this works on Linux, too, it is just unnecessary there)
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then if test -r /usr/local && test -x "`which brew`"; then which -a brew && brew update -v --auto-update; else stat /usr/local; fi; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install ca-certificates && brew install -v --display-times gtk-doc harfbuzz; fi
