@@ -16,10 +16,15 @@ jobs:
     - name: macos
       os: osx
       osx_image: xcode10.1
+      cache:
+        bundler: true
+        directories:
+          - /usr/local
       env: 
         - HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
         - XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
         - GIT_CURL_VERBOSE=1
+        - MAKEFLAGS="-j2"
       before_install:
         - export HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1
         - export XML_CATALOG_FILES="/usr/local/etc/xml/catalog" # for the docs
