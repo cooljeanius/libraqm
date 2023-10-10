@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE indexdiv PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+  <!ENTITY version SYSTEM "version.xml">
+]>
+<indexdiv id="api-index-0.3">
+<indexdiv><title>S</title>
+<indexentry><primaryie linkends="raqm-set-freetype-load-flags"><link linkend="raqm-set-freetype-load-flags">raqm_set_freetype_load_flags</link>, function in <link linkend="raqm-Raqm">Raqm</link></primaryie></indexentry>
+</indexdiv>
+</indexdiv>

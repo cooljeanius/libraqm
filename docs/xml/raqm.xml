@@ -1,0 +1,813 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+  <!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="raqm-Raqm">
+<refmeta>
+<refentrytitle role="top_of_page" id="raqm-Raqm.top_of_page">Raqm</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>RAQM Library</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname>Raqm</refname>
+<refpurpose>A library for complex text layout</refpurpose>
+</refnamediv>
+
+<refsect1 id="raqm-Raqm.functions" role="functions_proto">
+<title role="functions_proto.title">Functions</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="functions_proto_type" colwidth="150px"/>
+<colspec colname="functions_proto_name"/>
+<tbody>
+<row><entry role="function_type"><link linkend="raqm-t"><returnvalue>raqm_t</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="raqm-create">raqm_create</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="raqm-t"><returnvalue>raqm_t</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="raqm-reference">raqm_reference</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="void"><returnvalue>void</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-destroy">raqm_destroy</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-set-text">raqm_set_text</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-set-text-utf8">raqm_set_text_utf8</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-set-par-direction">raqm_set_par_direction</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-set-language">raqm_set_language</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-set-freetype-face">raqm_set_freetype_face</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-set-freetype-face-range">raqm_set_freetype_face_range</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-set-freetype-load-flags">raqm_set_freetype_load_flags</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-set-invisible-glyph">raqm_set_invisible_glyph</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-add-font-feature">raqm_add_font_feature</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-layout">raqm_layout</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="raqm-glyph-t"><returnvalue>raqm_glyph_t</returnvalue></link>&#160;*
+</entry><entry role="function_name"><link linkend="raqm-get-glyphs">raqm_get_glyphs</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-index-to-position">raqm_index_to_position</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+<row><entry role="function_type"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+</entry><entry role="function_name"><link linkend="raqm-position-to-index">raqm_position_to_index</link>&#160;<phrase role="c_punctuation">()</phrase></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+<refsect1 id="raqm-Raqm.other" role="other_proto">
+<title role="other_proto.title">Types and Values</title>
+<informaltable pgwide="1" frame="none">
+<tgroup cols="2">
+<colspec colname="other_proto_type" colwidth="150px"/>
+<colspec colname="other_proto_name"/>
+<tbody>
+<row><entry role="typedef_keyword">typedef</entry><entry role="function_name"><link linkend="raqm-t">raqm_t</link></entry></row>
+<row><entry role="datatype_keyword">enum</entry><entry role="function_name"><link linkend="raqm-direction-t">raqm_direction_t</link></entry></row>
+<row><entry role="datatype_keyword"></entry><entry role="function_name"><link linkend="raqm-glyph-t">raqm_glyph_t</link></entry></row>
+
+</tbody>
+</tgroup>
+</informaltable>
+</refsect1>
+
+<refsect1 id="raqm-Raqm.includes"><title>Includes</title><synopsis>#include &lt;raqm.h&gt;
+</synopsis></refsect1>
+
+<refsect1 id="raqm-Raqm.description" role="desc">
+<title role="desc.title">Description</title>
+<para>Raqm is a light weight text layout library with strong emphasis on
+supporting languages and writing systems that require complex text layout.</para>
+<para>The main object in Raqm API is <link linkend="raqm-t"><type>raqm_t</type></link>, it stores all the states of the
+input text, its properties, and the output of the layout process.</para>
+<para>To start, you create a <link linkend="raqm-t"><type>raqm_t</type></link> object, add text and font(s) to it, run the
+layout process, and finally query about the output. For example:</para>
+<informalexample><programlisting role="example" language="C"><![CDATA[
+#include "raqm.h"
+
+int
+main (int argc, char *argv[])
+{
+    const char *fontfile;
+    const char *text;
+    const char *direction;
+    const char *language;
+    int ret = 1;
+
+    FT_Library library = NULL;
+    FT_Face face = NULL;
+
+    if (argc < 5)
+    {
+        printf ("Usage: %s FONT_FILE TEXT DIRECTION LANG\n", argv[0]);
+        return 1;
+    }
+
+    fontfile =  argv[1];
+    text = argv[2];
+    direction = argv[3];
+    language = argv[4];
+
+    if (FT_Init_FreeType (&library) == 0)
+    {
+      if (FT_New_Face (library, fontfile, 0, &face) == 0)
+      {
+        if (FT_Set_Char_Size (face, face->units_per_EM, 0, 0, 0) == 0)
+        {
+          raqm_t *rq = raqm_create ();
+          if (rq != NULL)
+          {
+            raqm_direction_t dir = RAQM_DIRECTION_DEFAULT;
+
+            if (strcmp (direction, "r") == 0)
+              dir = RAQM_DIRECTION_RTL;
+            else if (strcmp (direction, "l") == 0)
+              dir = RAQM_DIRECTION_LTR;
+
+            if (raqm_set_text_utf8 (rq, text, strlen (text)) &&
+                raqm_set_freetype_face (rq, face) &&
+                raqm_set_par_direction (rq, dir) &&
+                raqm_set_language (rq, language, 0, strlen (text)) &&
+                raqm_layout (rq))
+            {
+              size_t count, i;
+              raqm_glyph_t *glyphs = raqm_get_glyphs (rq, &count);
+
+              ret = !(glyphs != NULL || count == 0);
+
+              printf("glyph count: %zu\n", count);
+              for (i = 0; i < count; i++)
+              {
+                  printf ("gid#%d off: (%d, %d) adv: (%d, %d) idx: %d\n",
+                          glyphs[i].index,
+                          glyphs[i].x_offset,
+                          glyphs[i].y_offset,
+                          glyphs[i].x_advance,
+                          glyphs[i].y_advance,
+                          glyphs[i].cluster);
+              }
+            }
+
+            raqm_destroy (rq);
+          }
+        }
+
+        FT_Done_Face (face);
+      }
+
+      FT_Done_FreeType (library);
+    }
+
+    return ret;
+}
+]]></programlisting></informalexample>
+<para>
+To compile this example:</para>
+<informalexample><programlisting role="example"><![CDATA[
+cc -o test test.c `pkg-config --libs --cflags raqm`
+]]></programlisting></informalexample>
+<para></para>
+
+</refsect1>
+<refsect1 id="raqm-Raqm.functions_details" role="details">
+<title role="details.title">Functions</title>
+<refsect2 id="raqm-create" role="function" condition="since:0.1">
+<title>raqm_create&#160;()</title>
+<indexterm zone="raqm-create" role="0.1"><primary>raqm_create</primary></indexterm>
+<programlisting language="C"><link linkend="raqm-t"><returnvalue>raqm_t</returnvalue></link>&#160;*
+raqm_create (<parameter><type>void</type></parameter>);</programlisting>
+<para>Creates a new <link linkend="raqm-t"><type>raqm_t</type></link> with all its internal states initialized to their
+defaults.</para>
+<refsect3 id="raqm-create.returns" role="returns">
+<title>Returns</title>
+<para>A newly allocated <link linkend="raqm-t"><type>raqm_t</type></link> with a reference count of 1. The initial reference
+count should be released with <link linkend="raqm-destroy"><function>raqm_destroy()</function></link> when you are done using the
+<link linkend="raqm-t"><type>raqm_t</type></link>. Returns <link linkend="NULL:CAPS"><literal>NULL</literal></link> in case of error.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-reference" role="function" condition="since:0.1">
+<title>raqm_reference&#160;()</title>
+<indexterm zone="raqm-reference" role="0.1"><primary>raqm_reference</primary></indexterm>
+<programlisting language="C"><link linkend="raqm-t"><returnvalue>raqm_t</returnvalue></link>&#160;*
+raqm_reference (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>);</programlisting>
+<para>Increases the reference count on <parameter>rq</parameter>
+ by one. This prevents <parameter>rq</parameter>
+ from being
+destroyed until a matching call to <link linkend="raqm-destroy"><function>raqm_destroy()</function></link> is made.</para>
+<refsect3 id="raqm-reference.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-reference.returns" role="returns">
+<title>Returns</title>
+<para>The referenced <link linkend="raqm-t"><type>raqm_t</type></link>.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-destroy" role="function" condition="since:0.1">
+<title>raqm_destroy&#160;()</title>
+<indexterm zone="raqm-destroy" role="0.1"><primary>raqm_destroy</primary></indexterm>
+<programlisting language="C"><link linkend="void"><returnvalue>void</returnvalue></link>
+raqm_destroy (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>);</programlisting>
+<para>Decreases the reference count on <parameter>rq</parameter>
+ by one. If the result is zero, then <parameter>rq</parameter>
+
+and all associated resources are freed.
+See <link linkend="cairo-reference"><function>cairo_reference()</function></link>.</para>
+<refsect3 id="raqm-destroy.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-set-text" role="function" condition="since:0.1">
+<title>raqm_set_text&#160;()</title>
+<indexterm zone="raqm-set-text" role="0.1"><primary>raqm_set_text</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+raqm_set_text (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>,
+               <parameter>const <link linkend="uint32-t"><type>uint32_t</type></link> *text</parameter>,
+               <parameter><link linkend="size-t"><type>size_t</type></link> len</parameter>);</programlisting>
+<para>Adds <parameter>text</parameter>
+ to <parameter>rq</parameter>
+ to be used for layout. It must be a valid UTF-32 text, any
+invalid character will be replaced with U+FFFD. The text should typically
+represent a full paragraph, since doing the layout of chunks of text
+separately can give improper output.</para>
+<refsect3 id="raqm-set-text.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>text</para></entry>
+<entry role="parameter_description"><para>a UTF-32 encoded text string.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>len</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>text</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-set-text.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="true"><literal>true</literal></link> if no errors happened, <link linkend="false"><literal>false</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-set-text-utf8" role="function" condition="since:0.1">
+<title>raqm_set_text_utf8&#160;()</title>
+<indexterm zone="raqm-set-text-utf8" role="0.1"><primary>raqm_set_text_utf8</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+raqm_set_text_utf8 (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>,
+                    <parameter>const <link linkend="char"><type>char</type></link> *text</parameter>,
+                    <parameter><link linkend="size-t"><type>size_t</type></link> len</parameter>);</programlisting>
+<para>Same as <link linkend="raqm-set-text"><function>raqm_set_text()</function></link>, but for text encoded in UTF-8 encoding.</para>
+<refsect3 id="raqm-set-text-utf8.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>text</para></entry>
+<entry role="parameter_description"><para>a UTF-8 encoded text string.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>len</para></entry>
+<entry role="parameter_description"><para>the length of <parameter>text</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-set-text-utf8.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="true"><literal>true</literal></link> if no errors happened, <link linkend="false"><literal>false</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-set-par-direction" role="function" condition="since:0.1">
+<title>raqm_set_par_direction&#160;()</title>
+<indexterm zone="raqm-set-par-direction" role="0.1"><primary>raqm_set_par_direction</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+raqm_set_par_direction (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>,
+                        <parameter><link linkend="raqm-direction-t"><type>raqm_direction_t</type></link> dir</parameter>);</programlisting>
+<para>Sets the paragraph direction, also known as block direction in CSS. For
+horizontal text, this controls the overall direction in the Unicode
+Bidirectional Algorithm, so when the text is mainly right-to-left (with or
+without some left-to-right) text, then the base direction should be set to
+<link linkend="RAQM-DIRECTION-RTL:CAPS"><type>RAQM_DIRECTION_RTL</type></link> and vice versa.</para>
+<para>The default is <link linkend="RAQM-DIRECTION-DEFAULT:CAPS"><type>RAQM_DIRECTION_DEFAULT</type></link>, which determines the paragraph
+direction based on the first character with strong bidi type (see <ulink url="http://unicode.org/reports/tr9/#P2">rule
+P2</ulink> in Unicode Bidirectional Algorithm),
+which can be good enough for many cases but has problems when a mainly
+right-to-left paragraph starts with a left-to-right character and vice versa
+as the detected paragraph direction will be the wrong one, or when text does
+not contain any characters with string bidi types (e.g. only punctuation or
+numbers) as this will default to left-to-right paragraph direction.</para>
+<para>For vertical, top-to-bottom text, <link linkend="RAQM-DIRECTION-TTB:CAPS"><type>RAQM_DIRECTION_TTB</type></link> should be used. Raqm,
+however, provides limited vertical text support and does not handle rotated
+horizontal text in vertical text, instead everything is treated as vertical
+text.</para>
+<refsect3 id="raqm-set-par-direction.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>dir</para></entry>
+<entry role="parameter_description"><para>the direction of the paragraph.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-set-par-direction.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="true"><literal>true</literal></link> if no errors happened, <link linkend="false"><literal>false</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-set-language" role="function" condition="since:0.2|stability:Unstable">
+<title>raqm_set_language&#160;()</title>
+<indexterm zone="raqm-set-language" role="0.2"><primary>raqm_set_language</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+raqm_set_language (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>,
+                   <parameter>const <link linkend="char"><type>char</type></link> *lang</parameter>,
+                   <parameter><link linkend="size-t"><type>size_t</type></link> start</parameter>,
+                   <parameter><link linkend="size-t"><type>size_t</type></link> len</parameter>);</programlisting>
+<para>Sets a <ulink url="https://www.w3.org/International/articles/language-tags/">BCP47 language
+code</ulink> to be used
+for <parameter>len</parameter>
+-number of characters staring at <parameter>start</parameter>
+.  The <parameter>start</parameter>
+ and <parameter>len</parameter>
+ are
+input string array indices (i.e. counting bytes in UTF-8 and scaler values
+in UTF-32).</para>
+<para>This method can be used repeatedly to set different languages for different
+parts of the text.</para>
+<refsect3 id="raqm-set-language.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>lang</para></entry>
+<entry role="parameter_description"><para>a BCP47 language code.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>start</para></entry>
+<entry role="parameter_description"><para>index of first character that should use <parameter>face</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>len</para></entry>
+<entry role="parameter_description"><para>number of characters using <parameter>face</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-set-language.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="true"><literal>true</literal></link> if no errors happened, <link linkend="false"><literal>false</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.2">0.2</link></para><para role="stability">Stability Level: <acronym>Unstable</acronym></para></refsect2>
+<refsect2 id="raqm-set-freetype-face" role="function" condition="since:0.1">
+<title>raqm_set_freetype_face&#160;()</title>
+<indexterm zone="raqm-set-freetype-face" role="0.1"><primary>raqm_set_freetype_face</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+raqm_set_freetype_face (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>,
+                        <parameter><link linkend="FT-Face"><type>FT_Face</type></link> face</parameter>);</programlisting>
+<para>Sets an <link linkend="FT-Face"><type>FT_Face</type></link> to be used for all characters in <parameter>rq</parameter>
+.</para>
+<para>See also <link linkend="raqm-set-freetype-face-range"><function>raqm_set_freetype_face_range()</function></link>.</para>
+<refsect3 id="raqm-set-freetype-face.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>face</para></entry>
+<entry role="parameter_description"><para>an <link linkend="FT-Face"><type>FT_Face</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-set-freetype-face.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="true"><literal>true</literal></link> if no errors happened, <link linkend="false"><literal>false</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-set-freetype-face-range" role="function" condition="since:0.1">
+<title>raqm_set_freetype_face_range&#160;()</title>
+<indexterm zone="raqm-set-freetype-face-range" role="0.1"><primary>raqm_set_freetype_face_range</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+raqm_set_freetype_face_range (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>,
+                              <parameter><link linkend="FT-Face"><type>FT_Face</type></link> face</parameter>,
+                              <parameter><link linkend="size-t"><type>size_t</type></link> start</parameter>,
+                              <parameter><link linkend="size-t"><type>size_t</type></link> len</parameter>);</programlisting>
+<para>Sets an <link linkend="FT-Face"><type>FT_Face</type></link> to be used for <parameter>len</parameter>
+-number of characters staring at <parameter>start</parameter>
+.
+The <parameter>start</parameter>
+ and <parameter>len</parameter>
+ are input string array indices (i.e. counting bytes in
+UTF-8 and scaler values in UTF-32).</para>
+<para>This method can be used repeatedly to set different faces for different
+parts of the text. It is the responsibility of the client to make sure that
+face ranges cover the whole text.</para>
+<para>See also <link linkend="raqm-set-freetype-face"><function>raqm_set_freetype_face()</function></link>.</para>
+<refsect3 id="raqm-set-freetype-face-range.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>face</para></entry>
+<entry role="parameter_description"><para>an <link linkend="FT-Face"><type>FT_Face</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>start</para></entry>
+<entry role="parameter_description"><para>index of first character that should use <parameter>face</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>len</para></entry>
+<entry role="parameter_description"><para>number of characters using <parameter>face</parameter>
+.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-set-freetype-face-range.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="true"><literal>true</literal></link> if no errors happened, <link linkend="false"><literal>false</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-set-freetype-load-flags" role="function" condition="since:0.3">
+<title>raqm_set_freetype_load_flags&#160;()</title>
+<indexterm zone="raqm-set-freetype-load-flags" role="0.3"><primary>raqm_set_freetype_load_flags</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+raqm_set_freetype_load_flags (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>,
+                              <parameter><link linkend="int"><type>int</type></link> flags</parameter>);</programlisting>
+<para>Sets the load flags passed to FreeType when loading glyphs, should be the
+same flags used by the client when rendering FreeType glyphs.</para>
+<para>This requires version of HarfBuzz that has <link linkend="hb-ft-font-set-load-flags"><function>hb_ft_font_set_load_flags()</function></link>, for
+older version the flags will be ignored.</para>
+<refsect3 id="raqm-set-freetype-load-flags.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>flags</para></entry>
+<entry role="parameter_description"><para>FreeType load flags.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-set-freetype-load-flags.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="true"><literal>true</literal></link> if no errors happened, <link linkend="false"><literal>false</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.3">0.3</link></para></refsect2>
+<refsect2 id="raqm-set-invisible-glyph" role="function" condition="since:0.6">
+<title>raqm_set_invisible_glyph&#160;()</title>
+<indexterm zone="raqm-set-invisible-glyph" role="0.6"><primary>raqm_set_invisible_glyph</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+raqm_set_invisible_glyph (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>,
+                          <parameter><link linkend="int"><type>int</type></link> gid</parameter>);</programlisting>
+<para>Sets the glyph id to be used for invisible glyhphs.</para>
+<para>If <parameter>gid</parameter>
+ is negative, invisible glyphs will be suppressed from the output.
+This requires HarfBuzz 1.8.0 or later. If raqm is used with an earlier
+HarfBuzz version, the return value will be <link linkend="false"><literal>false</literal></link> and the shaping behavior
+does not change.</para>
+<para>If <parameter>gid</parameter>
+ is zero, invisible glyphs will be rendered as space.
+This works on all versions of HarfBuzz.</para>
+<para>If <parameter>gid</parameter>
+ is a positive number, it will be used for invisible glyphs.
+This requires a version of HarfBuzz that has
+<link linkend="hb-buffer-set-invisible-glyph"><function>hb_buffer_set_invisible_glyph()</function></link>. For older versions, the return value
+will be <link linkend="false"><literal>false</literal></link> and the shaping behavior does not change.</para>
+<refsect3 id="raqm-set-invisible-glyph.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>gid</para></entry>
+<entry role="parameter_description"><para>glyph id to use for invisible glyphs.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-set-invisible-glyph.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="true"><literal>true</literal></link> if no errors happened, <link linkend="false"><literal>false</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.6">0.6</link></para></refsect2>
+<refsect2 id="raqm-add-font-feature" role="function" condition="since:0.1">
+<title>raqm_add_font_feature&#160;()</title>
+<indexterm zone="raqm-add-font-feature" role="0.1"><primary>raqm_add_font_feature</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+raqm_add_font_feature (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>,
+                       <parameter>const <link linkend="char"><type>char</type></link> *feature</parameter>,
+                       <parameter><link linkend="int"><type>int</type></link> len</parameter>);</programlisting>
+<para>Adds a font feature to be used by the <link linkend="raqm-t"><type>raqm_t</type></link> during text layout. This is
+usually used to turn on optional font features that are not enabled by
+default, for example <literal>dlig</literal> or <literal>ss01</literal>, but can be also used to turn off
+default font features.</para>
+<para><parameter>feature</parameter>
+ is string representing a single font feature, in the syntax
+understood by <link linkend="hb-feature-from-string"><function>hb_feature_from_string()</function></link>.</para>
+<para>This function can be called repeatedly, new features will be appended to the
+end of the features list and can potentially override previous features.</para>
+<refsect3 id="raqm-add-font-feature.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>feature</para></entry>
+<entry role="parameter_description"><para>a font feature string. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>len</para></entry>
+<entry role="parameter_description"><para>length of <parameter>feature</parameter>
+, -1 for <link linkend="NULL:CAPS"><literal>NULL</literal></link>-terminated.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-add-font-feature.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="true"><literal>true</literal></link> if parsing <parameter>feature</parameter>
+succeeded, <link linkend="false"><literal>false</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-layout" role="function" condition="since:0.1">
+<title>raqm_layout&#160;()</title>
+<indexterm zone="raqm-layout" role="0.1"><primary>raqm_layout</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+raqm_layout (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>);</programlisting>
+<para>Run the text layout process on <parameter>rq</parameter>
+. This is the main Raqm function where the
+Unicode Bidirectional Text algorithm will be applied to the text in <parameter>rq</parameter>
+,
+text shaping, and any other part of the layout process.</para>
+<refsect3 id="raqm-layout.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-layout.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="true"><literal>true</literal></link> if the layout process was successful, <link linkend="false"><literal>false</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-get-glyphs" role="function" condition="since:0.1">
+<title>raqm_get_glyphs&#160;()</title>
+<indexterm zone="raqm-get-glyphs" role="0.1"><primary>raqm_get_glyphs</primary></indexterm>
+<programlisting language="C"><link linkend="raqm-glyph-t"><returnvalue>raqm_glyph_t</returnvalue></link>&#160;*
+raqm_get_glyphs (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>,
+                 <parameter><link linkend="size-t"><type>size_t</type></link> *length</parameter>);</programlisting>
+<para>Gets the final result of Raqm layout process, an array of <link linkend="raqm-glyph-t"><type>raqm_glyph_t</type></link>
+containing the glyph indices in the font, their positions and other possible
+information.</para>
+<refsect3 id="raqm-get-glyphs.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>length</para></entry>
+<entry role="parameter_description"><para>output array length. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-get-glyphs.returns" role="returns">
+<title>Returns</title>
+<para>An array of <link linkend="raqm-glyph-t"><type>raqm_glyph_t</type></link>, or <link linkend="NULL:CAPS"><literal>NULL</literal></link> in case of error. This is owned by <parameter>rq</parameter>
+and must not be freed. </para>
+<para><emphasis role="annotation">[<acronym>transfer none</acronym>]</emphasis></para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-index-to-position" role="function" condition="since:0.2">
+<title>raqm_index_to_position&#160;()</title>
+<indexterm zone="raqm-index-to-position" role="0.2"><primary>raqm_index_to_position</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+raqm_index_to_position (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>,
+                        <parameter><link linkend="size-t"><type>size_t</type></link> *index</parameter>,
+                        <parameter><link linkend="int"><type>int</type></link> *x</parameter>,
+                        <parameter><link linkend="int"><type>int</type></link> *y</parameter>);</programlisting>
+<para>Calculates the cursor position after the character at <parameter>index</parameter>
+. If the character
+is right-to-left, then the cursor will be at the left of it, whereas if the
+character is left-to-right, then the cursor will be at the right of it.</para>
+<refsect3 id="raqm-index-to-position.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>index</para></entry>
+<entry role="parameter_description"><para>character index. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>inout</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>x</para></entry>
+<entry role="parameter_description"><para>output x position. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+<row><entry role="parameter_name"><para>y</para></entry>
+<entry role="parameter_description"><para>output y position. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-index-to-position.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="true"><literal>true</literal></link> if the process was successful, <link linkend="false"><literal>false</literal></link> otherwise.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.2">0.2</link></para></refsect2>
+<refsect2 id="raqm-position-to-index" role="function" condition="since:0.2">
+<title>raqm_position_to_index&#160;()</title>
+<indexterm zone="raqm-position-to-index" role="0.2"><primary>raqm_position_to_index</primary></indexterm>
+<programlisting language="C"><link linkend="bool"><returnvalue>bool</returnvalue></link>
+raqm_position_to_index (<parameter><link linkend="raqm-t"><type>raqm_t</type></link> *rq</parameter>,
+                        <parameter><link linkend="int"><type>int</type></link> x</parameter>,
+                        <parameter><link linkend="int"><type>int</type></link> y</parameter>,
+                        <parameter><link linkend="size-t"><type>size_t</type></link> *index</parameter>);</programlisting>
+<para>Returns the <parameter>index</parameter>
+ of the character at <parameter>x</parameter>
+ and <parameter>y</parameter>
+ position within text.
+If the position is outside the text, the last character is chosen as
+<parameter>index</parameter>
+.</para>
+<refsect3 id="raqm-position-to-index.parameters" role="parameters">
+<title>Parameters</title>
+<informaltable role="parameters_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="parameters_name" colwidth="150px"/>
+<colspec colname="parameters_description"/>
+<colspec colname="parameters_annotations" colwidth="200px"/>
+<tbody>
+<row><entry role="parameter_name"><para>rq</para></entry>
+<entry role="parameter_description"><para>a <link linkend="raqm-t"><type>raqm_t</type></link>.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>x</para></entry>
+<entry role="parameter_description"><para>x position.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>y</para></entry>
+<entry role="parameter_description"><para>y position.</para></entry>
+<entry role="parameter_annotations"></entry></row>
+<row><entry role="parameter_name"><para>index</para></entry>
+<entry role="parameter_description"><para>output character index. </para></entry>
+<entry role="parameter_annotations"><emphasis role="annotation">[<acronym>out</acronym>]</emphasis></entry></row>
+</tbody></tgroup></informaltable>
+</refsect3><refsect3 id="raqm-position-to-index.returns" role="returns">
+<title>Returns</title>
+<para><link linkend="true"><literal>true</literal></link> if the process was successful, <link linkend="false"><literal>false</literal></link> in case of error.</para>
+</refsect3><para role="since">Since: <link linkend="api-index-0.2">0.2</link></para></refsect2>
+
+</refsect1>
+<refsect1 id="raqm-Raqm.other_details" role="details">
+<title role="details.title">Types and Values</title>
+<refsect2 id="raqm-t" role="typedef" condition="since:0.1">
+<title>raqm_t</title>
+<indexterm zone="raqm-t" role="0.1"><primary>raqm_t</primary></indexterm>
+<programlisting language="C">typedef struct _raqm raqm_t;
+</programlisting>
+<para>This is the main object holding all state of the currently processed text as
+well as its output.</para>
+<para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-direction-t" role="enum" condition="since:0.1">
+<title>enum raqm_direction_t</title>
+<indexterm zone="raqm-direction-t" role="0.1"><primary>raqm_direction_t</primary></indexterm>
+<para>Base paragraph direction, see <link linkend="raqm-set-par-direction"><function>raqm_set_par_direction()</function></link>.</para>
+<refsect3 id="raqm-direction-t.members" role="enum_members">
+<title>Members</title>
+<informaltable role="enum_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="enum_members_name" colwidth="300px"/>
+<colspec colname="enum_members_description"/>
+<colspec colname="enum_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="constant"><entry role="enum_member_name"><para id="RAQM-DIRECTION-DEFAULT:CAPS">RAQM_DIRECTION_DEFAULT</para></entry>
+<entry role="enum_member_description"><para>Detect paragraph direction automatically.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="RAQM-DIRECTION-RTL:CAPS">RAQM_DIRECTION_RTL</para></entry>
+<entry role="enum_member_description"><para>Paragraph is mainly right-to-left text.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="RAQM-DIRECTION-LTR:CAPS">RAQM_DIRECTION_LTR</para></entry>
+<entry role="enum_member_description"><para>Paragraph is mainly left-to-right text.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+<row role="constant"><entry role="enum_member_name"><para id="RAQM-DIRECTION-TTB:CAPS">RAQM_DIRECTION_TTB</para></entry>
+<entry role="enum_member_description"><para>Paragraph is mainly vertical top-to-bottom text.</para>
+</entry>
+<entry role="enum_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3><para role="since">Since: <link linkend="api-index-0.1">0.1</link></para></refsect2>
+<refsect2 id="raqm-glyph-t" role="struct">
+<title>raqm_glyph_t</title>
+<indexterm zone="raqm-glyph-t"><primary>raqm_glyph_t</primary></indexterm>
+<programlisting language="C">typedef struct {
+    unsigned int index;
+    int x_advance;
+    int y_advance;
+    int x_offset;
+    int y_offset;
+    uint32_t cluster;
+    FT_Face ftface;
+} raqm_glyph_t;
+</programlisting>
+<para>The structure that holds information about output glyphs, returned from
+<link linkend="raqm-get-glyphs"><function>raqm_get_glyphs()</function></link>.</para>
+<refsect3 id="raqm-glyph-t.members" role="struct_members">
+<title>Members</title>
+<informaltable role="struct_members_table" pgwide="1" frame="none">
+<tgroup cols="3">
+<colspec colname="struct_members_name" colwidth="300px"/>
+<colspec colname="struct_members_description"/>
+<colspec colname="struct_members_annotations" colwidth="200px"/>
+<tbody>
+<row role="member"><entry role="struct_member_name"><para>unsigned&#160;<link linkend="int"><type>int</type></link>&#160;<structfield id="raqm-glyph-t.index">index</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the index of the glyph in the font file.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="raqm-glyph-t.x-advance">x_advance</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the glyph advance width in horizontal text.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="raqm-glyph-t.y-advance">y_advance</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the glyph advance width in vertical text.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="raqm-glyph-t.x-offset">x_offset</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the horizontal movement of the glyph from the current point.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="int"><type>int</type></link>&#160;<structfield id="raqm-glyph-t.y-offset">y_offset</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the vertical movement of the glyph from the current point.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="uint32-t"><type>uint32_t</type></link>&#160;<structfield id="raqm-glyph-t.cluster">cluster</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the index of original character in input text.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+<row role="member"><entry role="struct_member_name"><para><link linkend="FT-Face"><type>FT_Face</type></link>&#160;<structfield id="raqm-glyph-t.ftface">ftface</structfield>;</para></entry>
+<entry role="struct_member_description"><para>the <parameter>FT_Face</parameter>
+of the glyph.</para></entry>
+<entry role="struct_member_annotations"></entry>
+</row>
+</tbody></tgroup></informaltable>
+</refsect3>
+</refsect2>
+
+</refsect1>
+
+</refentry>

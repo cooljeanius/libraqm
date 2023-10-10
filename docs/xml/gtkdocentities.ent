@@ -1,0 +1,7 @@
+<!ENTITY package "raqm">
+<!ENTITY package_bugreport "https://github.com/HOST-Oman/libraqm/issues">
+<!ENTITY package_name "Raqm">
+<!ENTITY package_string "Raqm 0.5.1">
+<!ENTITY package_tarname "raqm">
+<!ENTITY package_url "https://github.com/HOST-Oman/libraqm/">
+<!ENTITY package_version "0.5.1">
