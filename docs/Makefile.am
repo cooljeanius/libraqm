@@ -11,8 +11,8 @@ AUTOMAKE_OPTIONS = 1.6
 # The name of the module, e.g. 'glib'.
 DOC_MODULE=raqm
 
-# Uncomment for versioned docs and specify the version of the module, e.g. '2'.
-#DOC_MODULE_VERSION=$(HB_VERSION_MAJOR)
+# Uncomment(ed) for versioned docs and specify the version of the module, e.g. '2'.
+DOC_MODULE_VERSION=$(HB_VERSION_MAJOR)
 
 # The top-level SGML file. You can change this if you want to.
 DOC_MAIN_SGML_FILE=$(DOC_MODULE)-docs.xml
@@ -66,7 +66,7 @@ HTML_IMAGES=
 # Extra SGML files that are included by $(DOC_MAIN_SGML_FILE).
 # e.g. content_files=running.sgml building.sgml changes-2.0.sgml
 content_files=	\
-	version.xml
+	version.xml xml/tree_index.sgml
 
 # SGML files where gtk-doc abbrevations (#GtkWidget) are expanded
 # These files must be listed here *and* in content_files
@@ -87,11 +87,6 @@ include $(top_srcdir)/gtk-doc.make
 # Other files to distribute
 # e.g. EXTRA_DIST += version.xml.in
 EXTRA_DIST += version.xml.in xml/tree_index.sgml
-
-# Files not to distribute
-# for --rebuild-types in $(SCAN_OPTIONS), e.g. $(DOC_MODULE).types
-# for --rebuild-sections in $(SCAN_OPTIONS) e.g. $(DOC_MODULE)-sections.txt
-#DISTCLEANFILES +=
 
 # Comment this out if you want 'make check' to test you doc status
 # and run some sanity checks
