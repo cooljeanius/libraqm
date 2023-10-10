@@ -15,6 +15,7 @@ jobs:
     - run: if test -e /usr/local/etc/xml/catalog; then export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"; fi
     - run: "./autogen.sh"
     - run: "./configure --enable-gtk-doc --disable-Werror"
+    - run: make
     - run: make check || (cat "$(find . -name '*.log')" && false)
     - run: make distcheck
     - run: bash .ci/deploy-docs.sh
