@@ -174,7 +174,7 @@ $(srcdir)/.gitignore: Makefile.am $(top_srcdir)/git.mk
 				"tmpl/*.bak" \
 				$(REPORT_FILES) \
 				$(DOC_MODULE).pdf \
-				xml html \
+				html \
 			; do echo "/$$x"; done; \
 			FLAVOR=$$(cd $(top_srcdir); $(AUTOCONF) --trace 'GTK_DOC_CHECK:$$2' ./configure.ac); \
 			case $$FLAVOR in *no-tmpl*) echo /tmpl;; esac; \

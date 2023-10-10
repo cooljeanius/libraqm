@@ -1,0 +1,22 @@
+name: cooljeanius/libraqm
+on:
+  push:
+    branches:
+    - "**/*"
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4.0.0
+    - run: sudo apt-get -y install libfreetype6-dev libharfbuzz-dev libfribidi-dev gtk-doc-tools shellcheck
+#     # 'sudo' was not transformed because there is no suitable equivalent in GitHub Actions
+    - run: if test -e /usr/local/etc/xml/catalog; then export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"; fi
+    - run: "./autogen.sh"
+    - run: "./configure --enable-gtk-doc --disable-Werror"
+    - run: make
+    - run: make check || (cat "$(find . -name '*.log')" && false)
+    - run: make distcheck
+    - run: if test -n "${TRAVIS_SECURE_ENV_VARS}"; then bash .ci/deploy-docs.sh; elif test -x "$(which shellcheck)"; then shellcheck .ci/deploy-docs.sh; else stat .ci/deploy-docs.sh; fi
+      if: "${{ success() }}"

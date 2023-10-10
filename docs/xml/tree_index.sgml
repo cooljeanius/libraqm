@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE screen PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+<!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+<!ENTITY version SYSTEM "version.xml">
+]>
+<screen>
+    <link linkend="GObject">GObject</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+    <phrase role="lineart">&#9474;</phrase>   <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkWidget">GtkWidget</link>
+    <phrase role="lineart">&#9474;</phrase>       <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkContainer">GtkContainer</link>
+    <phrase role="lineart">&#9474;</phrase>           <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="GtkBin">GtkBin</link>
+    <phrase role="lineart">&#9474;</phrase>           <phrase role="lineart">&#9474;</phrase>   <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkButton">GtkButton</link>
+    <phrase role="lineart">&#9474;</phrase>           <phrase role="lineart">&#9474;</phrase>       <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="BluetoothChooserButton">BluetoothChooserButton</link>
+    <phrase role="lineart">&#9474;</phrase>           <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="GtkBox">GtkBox</link>
+    <phrase role="lineart">&#9474;</phrase>               <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="BluetoothChooserCombo">BluetoothChooserCombo</link>
+    <phrase role="lineart">&#9474;</phrase>               <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="BluetoothChooser">BluetoothChooser</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="BluetoothClient">BluetoothClient</link>
+    <link linkend="GEnum">GEnum</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="BluetoothCategory">BluetoothCategory</link>
+    <phrase role="lineart">&#9500;&#9472;&#9472;</phrase> <link linkend="BluetoothColumn">BluetoothColumn</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="BluetoothStatus">BluetoothStatus</link>
+    <link linkend="GFlags">GFlags</link>
+    <phrase role="lineart">&#9584;&#9472;&#9472;</phrase> <link linkend="BluetoothType">BluetoothType</link>
+</screen>

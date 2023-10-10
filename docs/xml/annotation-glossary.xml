@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE glossary PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+               "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd" [
+  <!ENTITY % local.common.attrib "xmlns:xi  CDATA  #FIXED 'http://www.w3.org/2003/XInclude'">
+  <!ENTITY version SYSTEM "version.xml">
+]>
+<glossary id="annotation-glossary">
+  <title>Annotation Glossary</title>
+<glossdiv><title>I</title>
+    <glossentry>
+      <glossterm><anchor id="annotation-glossterm-inout"/>inout</glossterm>
+      <glossdef>
+        <para>Parameter for input and for returning results. Default is <acronym>transfer full</acronym>.</para>
+      </glossdef>
+    </glossentry>
+</glossdiv>
+<glossdiv><title>O</title>
+    <glossentry>
+      <glossterm><anchor id="annotation-glossterm-out"/>out</glossterm>
+      <glossdef>
+        <para>Parameter for returning results. Default is <acronym>transfer full</acronym>.</para>
+      </glossdef>
+    </glossentry>
+</glossdiv>
+<glossdiv><title>T</title>
+    <glossentry>
+      <glossterm><anchor id="annotation-glossterm-transfer full"/>transfer full</glossterm>
+      <glossdef>
+        <para>Free data after the code is done.</para>
+      </glossdef>
+    </glossentry>
+    <glossentry>
+      <glossterm><anchor id="annotation-glossterm-transfer none"/>transfer none</glossterm>
+      <glossdef>
+        <para>Don't free data after the code is done.</para>
+      </glossdef>
+    </glossentry>
+</glossdiv>
+<glossdiv><title>U</title>
+    <glossentry>
+      <glossterm><anchor id="annotation-glossterm-Unstable"/>Unstable</glossterm>
+      <glossdef>
+        <para>Unstable interfaces are experimental or transitional. They are typically used to
+give outside developers early access to new or rapidly changing technology, or
+to provide an interim solution to a problem where a more general solution is
+anticipated. No claims are made about either source or binary compatibility from
+one minor release to the next.
+
+The Unstable interface level is a warning that these interfaces are  subject to
+change without warning and should not be used in unbundled products.
+
+Given such caveats, customer impact need not be a factor when considering
+incompatible changes to an Unstable interface in a major or minor release.
+Nonetheless, when such changes are introduced, the changes should still be
+mentioned in the release notes for the affected release.
+</para>
+      </glossdef>
+    </glossentry>
+</glossdiv>
+</glossary>
