@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v4.0.0
-    - run: apt-get -y install libfreetype6-dev libharfbuzz-dev libfribidi-dev gtk-doc-tools
+    - run: sudo apt-get -y install libfreetype6-dev libharfbuzz-dev libfribidi-dev gtk-doc-tools
 #     # 'sudo' was not transformed because there is no suitable equivalent in GitHub Actions
     - run: if test -e /usr/local/etc/xml/catalog; then export XML_CATALOG_FILES="/usr/local/etc/xml/catalog"; fi
     - run: "./autogen.sh"
