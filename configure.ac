@@ -10,6 +10,7 @@ AC_INIT([Raqm],
 
 AC_CONFIG_AUX_DIR([build-aux])
 AM_INIT_AUTOMAKE([foreign color-tests -Wall -Wno-portability])
+AM_MAINTAINER_MODE
 AM_SILENT_RULES([yes])dnl
 
 AC_CONFIG_HEADERS([config.h])
