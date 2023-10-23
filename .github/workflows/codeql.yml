@@ -69,7 +69,7 @@ jobs:
         # queries: security-extended,security-and-quality
 
     - name: Dependencies
-      if: matrix.language == 'cpp'
+      if: matrix.language == 'c-cpp'
       run: sudo apt-get -y install libfreetype6-dev libharfbuzz-dev libfribidi-dev gtk-doc-tools
 
     # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
@@ -79,7 +79,7 @@ jobs:
         IGNORE_WERROR: 1
 
     - name: Run tests
-      if: matrix.language == 'cpp'
+      if: matrix.language == 'c-cpp'
       run: make check
 
     - name: Perform CodeQL Analysis
