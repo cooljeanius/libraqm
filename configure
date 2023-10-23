@@ -5771,6 +5771,12 @@ fi
 
 
 # Enable compiler warnings
+if test "x${IGNORE_WERROR}" = "x1"
+then :
+
+  export enable_Werror="no"
+
+fi
 { printf "%s\n" "$as_me:${as_lineno-$LINENO}: checking for a sed that does not truncate output" >&5
 printf %s "checking for a sed that does not truncate output... " >&6; }
 if test ${ac_cv_path_SED+y}

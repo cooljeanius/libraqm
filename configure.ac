@@ -23,6 +23,9 @@ AC_PROG_CPP
 AC_PROG_CXX
 
 # Enable compiler warnings
+AS_IF([test "x${IGNORE_WERROR}" = "x1"],[
+  export enable_Werror="no"
+])
 AX_COMPILER_FLAGS
 
 LT_INIT
