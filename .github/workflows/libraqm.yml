@@ -2,7 +2,9 @@ name: cooljeanius/libraqm
 on:
   push:
     branches:
-    - "**/*"
+      - "**/*"
+    tags:
+      - "v0.*.*"
   pull_request:
 jobs:
   test:
@@ -20,3 +22,9 @@ jobs:
     - run: make distcheck
     - run: if test -n "${TRAVIS_SECURE_ENV_VARS}"; then bash .ci/deploy-docs.sh; elif test -x "$(which shellcheck)"; then shellcheck .ci/deploy-docs.sh; else stat .ci/deploy-docs.sh; fi
       if: "${{ success() }}"
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.3
+      if: "${{ success() }}"
+      with:
+        name: gzipped_tarfile
+        path: raqm-0.*.*.tar.gz
