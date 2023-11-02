@@ -15,5 +15,7 @@ depcomp linguist-vendored
 test-driver linguist-vendored
 build-aux/* linguist-vendored
 
+Makefile.in linguist-generated
+
 # Gnulib's git-merge-changelog driver:
 ChangeLog    merge=cl-merge
