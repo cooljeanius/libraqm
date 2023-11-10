@@ -24,7 +24,7 @@ build_script:
   - set PKG_CONFIG_PATH=%PKG_CONFIG_PATH%:/mingw64/lib/pkgconfig
   - call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" %PLATFORM%
   - bash -cvx "cp -v cccl /usr/bin"
-  - bash -cvx "exec 0</dev/null; (./autogen.sh || (if test -x \"$(which locate)\"; then locate gtkdocize; fi) || (if test -x \"$(which find)\" && test -r /; then find / -name gtkdocize -print 2>/dev/null; fi);)"
+  - bash -cvx "exec 0</dev/null; (./autogen.sh || (if test -x \"$(which locate)\"; then locate gtkdocize; fi) || (if test -x \"$(which find)\" && test -r /; then find / -name gtkdocize -print 2>/dev/null; fi) || (autoreconf -fvi -Wall);)"
   - bash -cvx "exec 0</dev/null; ./configure"
   - bash -cvx "exec 0</dev/null; make CFLAGS='/W4 /WX /wd4068'"
 
