@@ -62,13 +62,13 @@ fi
 
 # Eat newline by using autoconf-style compatibility variable:
 ${as_echo_n} "checking for gtkdocize... "
-which gtkdocize || {
+which gtkdocize 2>/dev/null || {
 	echo "*** No gtkdocize (gtk-doc) found, please install it ***"
 }
 
 # Likewise:
 ${as_echo_n} "checking for autoreconf... "
-which autoreconf || {
+which autoreconf 2>/dev/null || {
 	echo "*** No autoreconf (autoconf) found, please install it ***"
 	exit 1
 }
