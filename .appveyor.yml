@@ -5,21 +5,20 @@ install:
   - set PATH=C:\msys64\usr\bin;C:\msys64\mingw64\bin;%PATH%
   - appveyor DownloadFile "https://raw.githubusercontent.com/swig/cccl/master/cccl"
   - call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" %PLATFORM%
-  - appveyor-retry pacman -Syuu --needed --noconfirm --noprogressbar --ask=127
-  - appveyor-retry pacman -S --noconfirm autoconf automake libtool gtk-doc mingw-w64-x86_64-pkg-config mingw-w64-x86_64-harfbuzz mingw-w64-x86_64-fribidi mingw-w64-x86_64-freetype
+  - cmd: bash -cvx "if test -x \"$(which appveyor-retry 2>/dev/null)\" && test -x \"$(which pacman)\" && test -n \"$(ls m*.db*)\"; then (appveyor-retry pacman -Syuu --needed --noconfirm --noprogressbar --ask=127) && (appveyor-retry pacman -S --noconfirm autoconf automake libtool gtk-doc mingw-w64-x86_64-pkg-config mingw-w64-x86_64-harfbuzz mingw-w64-x86_64-fribidi mingw-w64-x86_64-freetype); fi"
 
 build_script:
   - set CC=cccl
   - set CXX=cccl
   - set LD=cccl
   - set PKG_CONFIG_PATH=%PKG_CONFIG_PATH%:/mingw64/lib/pkgconfig
-  - bash -c "mv cccl /usr/bin"
-  - bash -c "exec 0</dev/null; ./autogen.sh"
-  - bash -c "exec 0</dev/null; ./configure"
-  - bash -c "exec 0</dev/null; make CFLAGS='/W4 /WX /wd4068'"
+  - bash -cvx "cp -v cccl /usr/bin"
+  - bash -cvx "exec 0</dev/null; ./autogen.sh"
+  - bash -cvx "exec 0</dev/null; ./configure"
+  - bash -cvx "exec 0</dev/null; make CFLAGS='/W4 /WX /wd4068'"
 
-#test_script:
-#  - bash -c "make check"
+test_script:
+  - bash -cvx "make check || (cat \"$(find . -name '*.log')\" && stat Makefile)"
 
 # disable automatic tests
 test: off
