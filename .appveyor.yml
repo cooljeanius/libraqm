@@ -7,9 +7,9 @@ install:
   - call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" %PLATFORM%
   - cmd: bash -cvx "if test ! -e /etc/pacman.conf && test -e .ci/etc/pacman.conf && test -w /etc; then cp -v .ci/etc/pacman.conf /etc/pacman.conf; fi"
   - cmd: bash -cvx "if (appveyor-retry true 2>/dev/null || test -x \"$(which appveyor-retry 2>/dev/null)\") && test -x \"$(which pacman)\" && test -n \"$(ls m*.db*)\"; then (appveyor-retry pacman -Syuu --needed --noconfirm --noprogressbar --ask=127) && (appveyor-retry pacman -S --noconfirm autoconf automake libtool gtk-doc mingw-w64-x86_64-pkg-config mingw-w64-x86_64-harfbuzz mingw-w64-x86_64-fribidi mingw-w64-x86_64-freetype); fi"
-  - cmd: bash -cvx "if test -x \"$(which pacman)\" && test -n \"$(ls m*.db*)\"; then pacman -Syuu --needed --noconfirm --noprogressbar --ask=127 && pacman -S --noconfirm autoconf automake libtool gtk-doc mingw-w64-x86_64-pkg-config mingw-w64-x86_64-harfbuzz mingw-w64-x86_64-fribidi mingw-w64-x86_64-freetype; fi"
+  - cmd: bash -cvx "if test -x \"$(which pacman)\" && test -n \"$(ls m*.db* 2>/dev/null)\"; then pacman -Syuu --needed --noconfirm --noprogressbar --ask=127 && pacman -S --noconfirm autoconf automake libtool gtk-doc mingw-w64-x86_64-pkg-config mingw-w64-x86_64-harfbuzz mingw-w64-x86_64-fribidi mingw-w64-x86_64-freetype; fi"
   - cmd: bash -cvx "if (appveyor-retry true 2>/dev/null || test -x \"$(which appveyor-retry 2>/dev/null)\") && test -x \"$(which vcpkg)\"; then (vcpkg update && vcpkg upgrade && (appveyor-retry vcpkg install gtk) && vcpkg install gtk3 && vcpkg install gtkmm); fi"
-  - cmd: bash -cvx "if test -x \"$(which vcpkg)\"; then (vcpkg update && vcpkg upgrade && vcpkg install gtk3 && vcpkg install gtkmm); fi"
+  - cmd: bash -cvx "if test -x \"$(which vcpkg)\"; then (vcpkg update && vcpkg upgrade && vcpkg install gtkmm); fi"
   - cmd: bash -cvx "if test -x \"$(which scoop 2>/dev/null)\"; then (scoop bucket add extras && scoop install extras/gtk-sharp); fi"
   - cmd: bash -cvx "if test -x \"$(which choco)\"; then (choco update || choco upgrade); (choco install gtk-runtime || choco install --pre gtk-runtime); fi"
   - cmd: bash -cvx "if test -x \"$(which winget 2>/dev/null)\"; then winget install -e --id Mono.gtksharp; fi"
