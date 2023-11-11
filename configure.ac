@@ -9,6 +9,7 @@ AC_INIT([Raqm],
         [https://github.com/HOST-Oman/libraqm/])dnl
 
 AC_CONFIG_AUX_DIR([build-aux])
+AC_CANONICAL_TARGET
 AM_INIT_AUTOMAKE([foreign color-tests -Wall -Wno-portability])
 AM_MAINTAINER_MODE
 AM_SILENT_RULES([yes])dnl
