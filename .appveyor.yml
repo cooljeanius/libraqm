@@ -27,7 +27,7 @@ build_script:
   - bash -cvx "cp -v cccl /usr/bin"
   - bash -cvx "echo \"PKG_CONFIG_PATH is ${PKG_CONFIG_PATH}\""
   - bash -cvx "exec 0</dev/null; (./autogen.sh || (if test -x \"$(which locate)\"; then locate gtkdocize; fi) || (if test -x \"$(which find)\" && test -r /; then find / -name gtkdocize -print 2>/dev/null; fi) || (autoreconf -fvi -Wall);)"
-  - bash -cvx "exec 0</dev/null; (./configure || (if test -x \"$(which locate)\"; then locate freetype2.pc; fi) || (if test -x \"$(which find)\" && test -r /; then find / -name freetype2.pc -print 2>/dev/null; fi);)"
+  - bash -cvx "exec 0</dev/null; (./configure || (if test -x \"$(which locate)\"; then locate freetype2.pc; fi) || (if test -x \"$(which find)\" && test -r /; then find / -name freetype2.pc -print 2>/dev/null; fi) || (cat config.log | grep -i error);)"
   - bash -cvx "exec 0</dev/null; make CFLAGS='/W4 /WX /wd4068'"
 
 test_script:
