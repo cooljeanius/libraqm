@@ -11,9 +11,10 @@ install:
   - cmd: bash -cvx "if (appveyor-retry true 2>/dev/null || test -x \"$(which appveyor-retry 2>/dev/null)\") && test -x \"$(which vcpkg)\"; then (vcpkg update && vcpkg upgrade && (appveyor-retry vcpkg install gtk) && vcpkg install gtk3 && vcpkg install gtkmm); fi"
   - cmd: bash -cvx "if test -x \"$(which vcpkg)\"; then (vcpkg update && vcpkg upgrade && (vcpkg install gtkmm || vcpkg install gtk || vcpkg install atk || vcpkg install gdk-pixbuf || vcpkg install harfbuzz) && vcpkg install fribidi && vcpkg install freetype-gl && (vcpkg install libxft || vcpkg install ftgl || vcpkg install pkgconf || vcpkg install xcb-util-m4 || vcpkg list)); fi"
   - cmd: bash -cvx "if test -x \"$(which scoop 2>/dev/null)\"; then (scoop bucket add extras && scoop install extras/gtk-sharp); fi"
-  - cmd: bash -cvx "if test -x \"$(which choco)\"; then (choco update || choco upgrade); (choco install gtk-runtime || choco install --pre gtk-runtime); (choco install gtksharp || choco install --pre gtksharp || choco install pygtk-all-in-one_win32_py2.7 || choco install --pre pygtk-all-in-one_win32_py2.7 || choco install gtkhash || choco install --pre gtkhash); fi"
+  - cmd: bash -cvx "if test -x \"$(which choco)\"; then (choco update || choco upgrade); (choco install gtk-runtime || choco install --pre gtk-runtime); (choco install gtksharp || choco install --pre gtksharp || choco install pygtk-all-in-one_win32_py2.7 || choco install --pre pygtk-all-in-one_win32_py2.7 || choco install gtkhash || choco install --pre gtkhash); (choco install oxygenmono || choco install --pre oxygenmono); fi"
   - cmd: refreshenv
   - cmd: bash -cvx "if test -x \"$(which winget 2>/dev/null)\"; then winget install -e --id Mono.gtksharp; fi"
+  - cmd: bash -cvx "if test -x \"$(which nuget)\"; then nuget install freetype; elif test -x \"$(which dotnet)\"; then dotnet add package freetype; fi"
   - cmd: bash -cvx "sleep 1"
 
 build_script:
@@ -25,7 +26,7 @@ build_script:
   - call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" %PLATFORM%
   - bash -cvx "cp -v cccl /usr/bin"
   - bash -cvx "exec 0</dev/null; (./autogen.sh || (if test -x \"$(which locate)\"; then locate gtkdocize; fi) || (if test -x \"$(which find)\" && test -r /; then find / -name gtkdocize -print 2>/dev/null; fi) || (autoreconf -fvi -Wall);)"
-  - bash -cvx "exec 0</dev/null; ./configure"
+  - bash -cvx "exec 0</dev/null; (./configure || cat config.log)"
   - bash -cvx "exec 0</dev/null; make CFLAGS='/W4 /WX /wd4068'"
 
 test_script:
