@@ -11,7 +11,6 @@ MAINTAINERCLEANFILES = \
     $(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) \
     $(GITIGNORE_MAINTAINERCLEANFILES_M4_LIBTOOL) \
     $(GITIGNORE_MAINTAINERCLEANFILES_MAKEFILE_IN) \
-    $(srcdir)/m4/gtk-doc.m4 \
     $(srcdir)/docs/raqm-overrides.txt \
     *~ compile confdefs.h config.guess config.sub conftest* depcomp install-sh \
     ltmain.sh missing test-driver .env.local log/*.log lib*.a lib*.la lib*.lai \
@@ -20,6 +19,7 @@ MAINTAINERCLEANFILES = \
 
 MAINTAINER_EXTRACLEANFILES = \
     $(srcdir)/gtk-doc.make \
+    $(srcdir)/m4/gtk-doc.m4 \
     $(NULL)
 
 distclean-local maintainerclean-local:

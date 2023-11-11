@@ -9,7 +9,9 @@
 /*.rej
 /*.tab.c
 /*/*.dylib
+/*/*.lo
 /*/lib*.a
+/*/lib*.la
 /*~
 /.*.sw[nop]
 /.dirstamp
@@ -66,7 +68,6 @@
 /log/valet-20230921-041746.log
 /log/valet-20230921-054506.log
 /ltmain.sh
-/m4/gtk-doc.m4
 /m4/libtool.m4
 /m4/ltoptions.m4
 /m4/ltsugar.m4
@@ -76,10 +77,6 @@
 /raqm.pc
 /so_locations
 /src/Makefile.in
-/src/libraqm-test.la
-/src/libraqm.la
-/src/libraqm_la-raqm.lo
-/src/libraqm_test_la-raqm.lo
 /stamp-h1
 /tags
 /test-driver
