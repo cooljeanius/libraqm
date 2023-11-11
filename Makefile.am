@@ -11,12 +11,19 @@ MAINTAINERCLEANFILES = \
     $(GITIGNORE_MAINTAINERCLEANFILES_TOPLEVEL) \
     $(GITIGNORE_MAINTAINERCLEANFILES_M4_LIBTOOL) \
     $(GITIGNORE_MAINTAINERCLEANFILES_MAKEFILE_IN) \
-    $(srcdir)/gtk-doc.make \
     $(srcdir)/m4/gtk-doc.m4 \
     $(srcdir)/docs/raqm-overrides.txt \
-    *~ compile config.guess config.sub depcomp install-sh ltmain.sh missing \
-    test-driver \
+    *~ compile confdefs.h config.guess config.sub conftest* depcomp install-sh \
+    ltmain.sh missing test-driver .env.local log/*.log lib*.a lib*.la lib*.lai \
+    */lib*.a */lib*.la */lib*.la *.lo *.dylib */*.lo */*.dylib \
+    $(NULL) @MAINT@ $(MAINTAINER_EXTRACLEANFILES)
+
+MAINTAINER_EXTRACLEANFILES = \
+    $(srcdir)/gtk-doc.make \
     $(NULL)
+
+distclean-local maintainerclean-local:
+	-rm -rf raqm-*.*.*/* || rmdir raqm-*.*.* || ls raqm-*.*.*
 
 ## FIXME: This should get removed eventually, once possible to do so:
 AM_DISTCHECK_CONFIGURE_FLAGS = --disable-Werror
