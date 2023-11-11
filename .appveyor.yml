@@ -25,10 +25,10 @@ build_script:
   - call "%VS140COMNTOOLS%\..\..\VC\vcvarsall.bat" %PLATFORM%
   - set PKG_CONFIG_PATH=%PKG_CONFIG_PATH%:.
   - bash -cvx "cp -v cccl /usr/bin"
-  - bash -cvx "if test -n \"${PKG_CONFIG_PATH}\"; then for pkcdir in /mingw32/lib/pkgconfig /mingw64/lib/pkgconfig /usr/lib/pkgconfig /usr/local/lib/pkgconfig /opt/X11/lib /opt/local/lib /opt/sw/lib; do if test -d ${pkcdir}; then export PKG_CONFIG_PATH=\"${PKG_PATH_CONFIG}:${pkcdir}\"; else echo \"skipping adding ${pkcdir} to PKG_CONFIG_PATH\"; fi; done; fi"
+  - bash -cvx "if test -n \"${PKG_CONFIG_PATH}\"; then for pkcdir in /mingw32/lib/pkgconfig /mingw64/lib/pkgconfig /msys64/usr/lib/pkgconfig /msys64/mingw64/lib/pkgconfig /usr/lib/pkgconfig /usr/local/lib/pkgconfig /opt/X11/lib /opt/local/lib /opt/sw/lib; do if test -d \"${pkcdir}\"; then export PKG_CONFIG_PATH=\"${PKG_PATH_CONFIG}:${pkcdir}\"; elif test -d \"C:${pkcdir}\"; then export PKG_CONFIG_PATH=\"${PKG_PATH_CONFIG}:C:${pkcdir}\"; elif test -x \"$(which cygpath)\" && test -d \"$(cygpath ${pkcdir})\"; then export PKG_CONFIG_PATH=\"${PKG_PATH_CONFIG}:$(cygpath ${pkcdir})\"; else echo \"skipping adding ${pkcdir} to PKG_CONFIG_PATH\"; fi; done; fi"
   - bash -cvx "if test -n \"${PKG_CONFIG_PATH}\"; then echo \"PKG_CONFIG_PATH is ${PKG_CONFIG_PATH}\"; else echo \"PKG_CONFIG_PATH is unset.\"; fi"
   - bash -cvx "exec 0</dev/null; (./autogen.sh || (if test -x \"$(which locate)\"; then locate gtkdocize; fi) || (if test -x \"$(which find)\" && test -r /; then find / -name gtkdocize -print 2>/dev/null; fi) || (autoreconf -fvi -Wall);)"
-  - bash -cvx "exec 0</dev/null; (./configure || (if test -x \"$(which locate)\"; then locate freetype2.pc; fi) || (if test -x \"$(which find)\" && test -r /; then find / -name freetype2.pc -print 2>/dev/null; fi) || (cat config.log | grep -i error);)"
+  - bash -cvx "exec 0</dev/null; (./configure || (if test -x \"$(which locate)\"; then locate freetype2.pc; fi) || (if test -x \"$(which find)\" && test -r /; then find / -name freetype2.pc -print 2>/dev/null; fi) || (cat config.log | grep -i \"error:\");)"
   - bash -cvx "exec 0</dev/null; make CFLAGS='/W4 /WX /wd4068'"
 
 test_script:
