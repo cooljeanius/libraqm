@@ -23,7 +23,7 @@ jobs:
     - run: if test -n "${TRAVIS_SECURE_ENV_VARS}"; then bash .ci/deploy-docs.sh; elif test -x "$(which shellcheck)"; then shellcheck .ci/deploy-docs.sh; else stat .ci/deploy-docs.sh; fi
       if: "${{ success() }}"
     - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v4.3.2
+      uses: actions/upload-artifact@v4.3.3
       if: "${{ success() }}"
       with:
         name: gzipped_tarfile
