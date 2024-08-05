@@ -1,3 +1,5 @@
+---
+
 dist: xenial
 os: linux
 language: c
@@ -21,7 +23,7 @@ jobs:
         pip: true
         directories:
           - /usr/local
-      env: 
+      env:
         - HOMEBREW_NO_EMOJI=1 HOMEBREW_BOOTSNAP=1 HOMEBREW_CURL_VERBOSE=1 HOMEBREW_VERBOSE=1 HOMEBREW_VERBOSE_USING_DOTS=1 HOMEBREW_NO_INSTALL_CLEANUP=1 HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK=1
         - XML_CATALOG_FILES="/usr/local/etc/xml/catalog"
         - GIT_CURL_VERBOSE=1
@@ -31,7 +33,7 @@ jobs:
         - export XML_CATALOG_FILES="/usr/local/etc/xml/catalog" # for the docs
         - export GIT_CURL_VERBOSE=1 && env | uniq | sort | uniq
         - gem install bundle bundler
-        - if test -x "`which nproc`"; then echo "nproc is `nproc`"; elif test -x "`which getconf`"; then echo "getconf _NPROCESSORS_ONLN is `getconf _NPROCESSORS_ONLN`"; fi  
+        - if test -x "`which nproc`"; then echo "nproc is `nproc`"; elif test -x "`which getconf`"; then echo "getconf _NPROCESSORS_ONLN is `getconf _NPROCESSORS_ONLN`"; fi
         - if test -x "`which xcode-select`" && test "x`whoami`" = "xroot" && test "x${TERM_PROGRAM}" = "xApple_Terminal"; then xcode-select --install; else echo "nope (`whoami`)"; fi
 
 before_script:
