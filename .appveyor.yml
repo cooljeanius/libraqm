@@ -16,6 +16,13 @@ install:
   - cmd: bash -cvx "if test -x \"$(which winget 2>/dev/null)\"; then winget install -e --id Mono.gtksharp; fi"
   - cmd: bash -cvx "if test -x \"$(which nuget)\"; then nuget install freetype; elif test -x \"$(which dotnet)\"; then dotnet add package freetype; fi"
   - cmd: bash -cvx "sleep 1"
+    # Install FreeType
+  - ps: Start-FileDownload 'http://download.savannah.gnu.org/releases/freetype/freetype-2.7.tar.gz' -FileName 'freetype-2.7.tar.gz'
+  - 7z x freetype-2.7.tar.gz > NUL
+  - 7z x freetype-2.7.tar -oc:\src\lib > NUL
+  - cd c:\src\lib\freetype-2.7\builds\windows\vc2010
+  - '"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.com"  freetype.sln /upgrade'
+  - msbuild freetype.sln /p:Configuration=Release /p:Platform="Win32"
 
 build_script:
   - set CC=cccl
