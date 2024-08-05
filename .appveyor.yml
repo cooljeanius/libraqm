@@ -27,7 +27,7 @@ install:
   - '"C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\devenv.com"  freetype.sln /upgrade'
   - msbuild freetype.sln /p:Configuration=Release /p:Platform="Win32"
   - bash -cvx "env | sort | uniq"
-  - cd "${OLDPWD}" || cd "${HOMEDRIVE}${HOMEPATH}" || bash -cvx "cd \"${OLDPWD}\""
+  - cd "${OLDPWD}" || cd C:\projects\libraqm || bash -cvx "cd \"${OLDPWD}\""
 
 build_script:
   - set CC=cccl
