@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - run: sudo apt-get -y install libfreetype6-dev libharfbuzz-dev libfribidi-dev gtk-doc-tools shellcheck
       # 'sudo' was not transformed because there is no suitable equivalent in
       # GitHub Actions
